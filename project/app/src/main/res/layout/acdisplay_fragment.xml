@@ -22,17 +22,16 @@
     android:id="@+id/container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
+    android:gravity="center_horizontal|top"
     android:orientation="vertical">
 
     <!-- Host layout for all widgets. -->
     <com.achep.acdisplay.ui.view.ForwardingLayout
         android:id="@+id/scene"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.6"
-        android:gravity="center_horizontal|bottom"
-        android:orientation="vertical" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"/>
 
     <FrameLayout
         android:id="@+id/divider"
@@ -60,8 +59,7 @@
 
     <FrameLayout
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.achep.acdisplay.ui.view.ForwardingLayout

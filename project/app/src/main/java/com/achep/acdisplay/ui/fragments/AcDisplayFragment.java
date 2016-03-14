@@ -129,6 +129,7 @@ public class AcDisplayFragment extends LeakWatchFragment implements
     private CircleView mCircleView;
     private TextView mStatusClockTextView;
     private ProgressBar mProgressBar;
+    private View mContainerView;
     private ViewGroup mDividerView;
     private ForwardingLayout mSceneContainer;
     private ForwardingLayout mIconsForwarder;
@@ -296,12 +297,12 @@ public class AcDisplayFragment extends LeakWatchFragment implements
                 (ImageView) root.findViewById(R.id.background));
 
         // Initialize main views
-        View c = root.findViewById(R.id.container);
-        mDividerView = (ViewGroup) c.findViewById(R.id.divider);
+        mContainerView = root.findViewById(R.id.container);
+        mDividerView = (ViewGroup) mContainerView.findViewById(R.id.divider);
         mProgressBar = (ProgressBar) mDividerView.findViewById(R.id.progress);
-        mSceneContainer = (ForwardingLayout) c.findViewById(R.id.scene);
-        mIconsForwarder = (ForwardingLayout) c.findViewById(R.id.forwarding);
-        mIconsContainer = (GridLayout) c.findViewById(R.id.grid);
+        mSceneContainer = (ForwardingLayout) mContainerView.findViewById(R.id.scene);
+        mIconsForwarder = (ForwardingLayout) mContainerView.findViewById(R.id.forwarding);
+        mIconsContainer = (GridLayout) mContainerView.findViewById(R.id.grid);
 
         // Initialize home widgets.
         mSceneMainClock = new SceneCompat(mSceneContainer, mClockWidget
@@ -344,6 +345,10 @@ public class AcDisplayFragment extends LeakWatchFragment implements
                 }
 
             });
+
+            // Set padding for container
+            int paddingSize = MathUtils.fromPixelsToDp(this, 80);
+            mContainerView.setPadding(paddingSize, paddingSize, paddingSize, paddingSize);
         }
     }
 

@@ -18,6 +18,8 @@
  */
 package com.achep.base.utils;
 
+import android.content.Context;
+
 /**
  * Created by Artem on 03.01.14.
  */
@@ -37,6 +39,11 @@ public class MathUtils {
 
     public static int bool(boolean a) {
         return a ? 1 : 0;
+    }
+
+    public static int fromPixelsToDp(Context ctx, int sizeInPixels) {
+        float scale = ctx.getResources().getDisplayMetrics().density;
+        return (int)(sizeInPixels * scale + 0.5f);
     }
 
 }
